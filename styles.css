@@ -91,6 +91,7 @@ h1, h2{
     box-sizing: border-box;
     width: 300px;
     float: left;
+    clear: both;
 }
 
 #add-book button{
@@ -113,6 +114,14 @@ h1, h2{
     content: '';
     display: block;
     clear: both;
+}
+
+#add-book #hide{
+  width: 30px;
+}
+
+#add-book label{
+  line-height: 52px;
 }
 
 /*
