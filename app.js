@@ -3,12 +3,12 @@ const bookList = document.querySelector('#book-list ul');
 const bookForm = document.forms['add-book'];
 const hideBooks = document.querySelector('#hide');
 const bookRead = document.querySelectorAll('.book-complete');
-const tabs = document.querySelector('.tabs')
-const panels = document.querySelectorAll('.panel')
+const tabs = document.querySelector('.tabs');
+const panels = document.querySelectorAll('.panel');
 // console.log(panels)
 
 //delete Function
-bookList.addEventListener('click', function(e) {
+bookList.addEventListener('click', function (e) {
   if (e.target.matches('.delete')) {
     deleteBooks(e.target);
   } else if (e.target.matches('.book-complete')) {
@@ -17,28 +17,28 @@ bookList.addEventListener('click', function(e) {
 });
 
 //tabbed panels
-tabs.addEventListener('click', ev => {
+tabs.addEventListener('click', (ev) => {
   if (ev.target.matches('li')) {
-    const targetP = document.querySelector(ev.target.dataset.target)
+    const targetP = document.querySelector(ev.target.dataset.target);
     panels.forEach((panel) => {
       if (panel === targetP) {
-        panel.classList.add('active')
+        panel.classList.add('active');
       } else {
-        panel.classList.remove('active')
+        panel.classList.remove('active');
       }
-    })
+    });
   }
-})
+});
 
 //tabs color
-tabs.addEventListener('click', ev => {
-  let tab = tabs.querySelectorAll('li')
+tabs.addEventListener('click', (ev) => {
+  let tab = tabs.querySelectorAll('li');
   if (ev.target.matches('li')) {
     tab.forEach((item) => {
       if (ev.target === item) {
-        item.classList.add('active')
+        item.classList.add('active');
       } else {
-        item.classList.remove('active')
+        item.classList.remove('active');
       }
     });
   }
@@ -91,6 +91,7 @@ function completeRead(ev) {
 bookForm.addEventListener('submit', (e) => {
   e.preventDefault();
   let text = e.target.title.value;
+  console.log(text);
   let newLI = createAndAppendElement('li', bookList, null, null, undefined);
   let checkBox = createAndAppendElement('input', newLI, null, 'book-complete', (e) => {
     e.setAttribute('type', 'checkbox');
